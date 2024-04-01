@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ReactQueryProvider } from "./QueryProvider";
 import NavBar from "@/components/NavBar";
+import { Suspense } from "react";
+import Spinner from "@/components/Spinner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +22,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReactQueryProvider>
-          <NavBar />
-          {children}
+          <Suspense
+            fallback={
+              <div className="h-screen flex items-center justify-center">
+                <Spinner />
+              </div>
+            }
+          >
+            <NavBar />
+            {children}
+          </Suspense>
         </ReactQueryProvider>
       </body>
     </html>
