@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { FC } from "react";
 
 interface MedProps {
