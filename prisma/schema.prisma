@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  PRODUCTID                        String  @id @default(cuid())
+  PRODUCTNDC                       String?
+  PRODUCTTYPENAME                  String?
+  PROPRIETARYNAME                  String?
+  PROPRIETARYNAMESUFFIX            String?
+  NONPROPRIETARYNAME               String?
+  DOSAGEFORMNAME                   String?
+  ROUTENAME                        String?
+  STARTMARKETINGDATE               String?
+  ENDMARKETINGDATE                 String?
+  MARKETINGCATEGORYNAME            String?
+  APPLICATIONNUMBER                String?
+  LABELERNAME                      String?
+  SUBSTANCENAME                    String?
+  ACTIVE_NUMERATOR_STRENGTH        String?
+  ACTIVE_INGRED_UNIT               String?
+  PHARM_CLASSES                    String?
+  DEASCHEDULE                      String?
+  NDC_EXCLUDE_FLAG                 String?
+  LISTING_RECORD_CERTIFIED_THROUGH String?
+}
