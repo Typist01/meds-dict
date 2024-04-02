@@ -7,7 +7,7 @@ const getFileContents = () => {
 };
 
 async function main() {
-  const lines = getFileContents().split("\r\n");
+  const lines = getFileContents().split("\n");
   if (lines.length > 1) {
     lines.shift();
   }
@@ -40,6 +40,7 @@ async function main() {
     };
   });
 
+  console.log(productsToCreate.slice(0, 5));
   await prisma.product.createMany({
     data: productsToCreate,
     skipDuplicates: true,
